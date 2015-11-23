@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="ThemeHouse_DailyPostLimit" title="[⌂] Daily Post Limit" version_string="1.0.1" version_id="1447261019" url="http://xf.themehouse.io/" install_callback_class="ThemeHouse_Install" install_callback_method="install" uninstall_callback_class="ThemeHouse_Install" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="controller_pre_dispatch" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_ControllerPreDispatch" callback_method="controllerPreDispatch" active="1" hint="" description=""/>
+    <listener event_id="file_health_check" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_FileHealthCheck" callback_method="fileHealthCheck" active="1" hint="" description=""/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Account" description="XenForo_ControllerPublic_Account (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Conversation" description="XenForo_ControllerPublic_Conversation (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Forum" description="XenForo_ControllerPublic_Forum (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Member" description="XenForo_ControllerPublic_Member (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Misc" description="XenForo_ControllerPublic_Misc (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Post" description="XenForo_ControllerPublic_Post (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_ProfilePost" description="XenForo_ControllerPublic_ProfilePost (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Thread" description="XenForo_ControllerPublic_Thread (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="ThemeHouse_DailyPostLimit_Listener_LoadClass" callback_method="loadClassController" active="1" hint="" description="(For XenForo 1.1 and below)" compatibility_switch="1"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions>
+      <permission permission_group_id="conversation" permission_id="dailyLimit" permission_type="integer" default_value_int="0" interface_group_id="conversationPermissions" display_order="200"/>
+      <permission permission_group_id="general" permission_id="dailyContactLimit" permission_type="integer" default_value_int="0" interface_group_id="generalPermissions" display_order="12000"/>
+      <permission permission_group_id="general" permission_id="dailyPostLimit" permission_type="integer" default_value_int="0" interface_group_id="generalPermissions" display_order="10000"/>
+      <permission permission_group_id="general" permission_id="dailyReportLimit" permission_type="integer" default_value_int="0" interface_group_id="generalPermissions" display_order="11000"/>
+    </permissions>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="permission_conversation_dailyLimit" version_id="0" version_string="1.0.0"><![CDATA[Daily limit on conversations]]></phrase>
+    <phrase title="permission_general_dailyContactLimit" version_id="1370722019" version_string="1.0.0"><![CDATA[Daily limit on contact us form]]></phrase>
+    <phrase title="permission_general_dailyPostLimit" version_id="0" version_string="1.0.0"><![CDATA[Daily limit on posts]]></phrase>
+    <phrase title="permission_general_dailyReportLimit" version_id="1370722019" version_string="1.0.0"><![CDATA[Daily limit on reports]]></phrase>
+    <phrase title="th_you_have_reached_daily_limit_for_this_action_dailypostlimit" version_id="0" version_string="1.0.0"><![CDATA[You have reached your daily limit for performing this action.]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications>
+    <modification template="footer" modification_key="th_copyrightNotice_dailyPostLimit" description="Copyright notice for [⌂] Daily Post Limit" execution_order="1" enabled="1" action="callback">
+      <find><![CDATA[/{xen:phrase (?:xenforo|extra)_copyright}/]]></find>
+      <replace><![CDATA[ThemeHouse_Listener_InitDependencies::copyrightNotice]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
